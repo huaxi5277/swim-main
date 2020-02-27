@@ -8,7 +8,8 @@ const app = express();
 
 const users = require('./routers/swimming/users')
 const skill = require('./routers/swimming/skill')
-
+const physical = require('./routers/swimming/physical')
+const beforeAndafter = require('./routers/swimming/beforeAndafter')
 // 使用中间件实现允许跨域
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -39,7 +40,9 @@ mongoose
 // 使用外部路由 
 
 app.use('/swimmimg/users',users);
-app.use('/swimmimg/skill',skill)
+app.use('/swimmimg/skill',skill);
+app.use('/swimmimg/physical',physical)
+app.use('/swimmimg/beforeAndafter',beforeAndafter)
 const port = process.env.PORT || 4000;
 
 app.listen(port, () => {
